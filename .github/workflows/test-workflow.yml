@@ -2,7 +2,7 @@ name: Test Workflow
 
 on:
   repository_dispatch:
-    types: [http-trigger]
+    types: [slack-bot]
 
 jobs:
   echo-inputs:
@@ -14,4 +14,4 @@ jobs:
 
       - name: Echo
         run: |
-          echo "input ${{ github.event.client_payload }}"
+          echo "input ${{ github.event.payload }}"
