@@ -1,0 +1,17 @@
+name: Test Workflow
+
+on:
+  repository_dispatch:
+    types: [http-trigger]
+
+jobs:
+  echo-inputs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Echo
+        run: |
+          echo "input ${{ github.event.client_payload }}"
